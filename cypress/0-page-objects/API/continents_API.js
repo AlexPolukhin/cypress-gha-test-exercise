@@ -10,7 +10,7 @@ export class ContinentsAPI {
 
     validateContinentsDefault(response) {
         expect(response.status).to.eq(200);
-        expect(response.body).to.have.property('dataa');
+        expect(response.body).to.have.property('data');
         expect(response.body.data).to.have.property('continents');
         expect(response.body.data.continents).to.be.an('array').that.is.not.empty;
 
