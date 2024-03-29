@@ -10,9 +10,7 @@ export class ProductPage {
   }
 
   navigateToProduct(randomProd) {
-    //open random product page
     cy.visit('/prod.html?idp_=' + randomProd);
-    //check if the product page url is correct
     cy.url().should('include', `prod.html?idp_=${randomProd}`);
   }
 
@@ -31,5 +29,4 @@ export class ProductPage {
     // assert on the POST request to add to cart
     cy.wait('@postAddToCart').its('response.statusCode').should('eq', 200);
   }
-
 }

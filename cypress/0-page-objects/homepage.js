@@ -19,5 +19,4 @@ export class HomePage {
             .click();
         cy.url().should('include', `prod.html?idp_=${random + 1}`);
     }
-
 }

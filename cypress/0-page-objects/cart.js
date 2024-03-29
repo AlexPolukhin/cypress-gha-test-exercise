@@ -7,9 +7,7 @@ export class CartPage {
     }
 
     navigateToCart() {
-        // click on the cart link
         cy.get('#cartur').click();
-        // check if the url is correct
         cy.url().should('include', '/cart.html');
     }
 
@@ -24,6 +22,5 @@ export class CartPage {
                 expect(expectedPriceFormat).to.include(actualText);
             });
         });
-      }
-  
+    }
 }

@@ -16,11 +16,10 @@ export class DefaultPage {
       cookie: cookie
     }).then((response) => {
         expect(response.status).to.eq(200);
-    });
+      });
   }
 
   validateUserLoggedIn() {
     cy.contains('Welcome Autousertest').should('be.visible');
-}
-
+  }
 }

@@ -18,7 +18,7 @@ describe('Continents Query', () => {
                 { code: 'NA', name: 'North America' },
                 { code: 'OC', name: 'Oceania' },
                 { code: 'SA', name: 'South America' },
-              ];
+            ];
     
             const graphqlQuery = {
                 query: `
