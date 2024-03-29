@@ -1,3 +1,5 @@
+first draft: 29.03.24
+
 # Cypress Tests for Demo Websites
 
 ## Introduction
@@ -123,3 +125,27 @@ correct message in response
 
 #### Language
 - **tbd**
+
+------------
+
+## Future Improvements
+
+### Documentation:
+- Review the first draft of the test suites to better split test cases into test groups.
+- Add test cases for functionalities not currently covered.
+- Enhance the descriptions of test cases (including titles, steps, expected results) and organize them in a test management system for easier maintenance and scalability.
+
+### Increase Test Coverage:
+- **UI:** 
+  Aim to cover at least the full smoke and critical path suites to ensure the most important functionalities are working as expected and to catch regressions.
+- **API Endpoints:** 
+  Extend coverage to include all available endpoints, with a special focus on edge cases and error handling scenarios to ensure stability.
+
+### Visual Regression Testing:
+- Integrate a visual regression testing tool for a more thorough UI inspection. 
+
+### Cross-Browser and Device Testing:
+- Expand testing to cover a wider range of browsers and devices.
+
+### Test Result Reporting:
+- Implement test result reporting from the CI pipeline and send reports to common channels such as Slack or email.
