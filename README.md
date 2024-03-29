@@ -29,22 +29,22 @@ This repository contains Cypress tests for a demo website. The tests are organiz
 ## UI
 
 ### Smoke Tests
-- **Verify Homepage (repeat for new/existing users)**: 
-page loads, default layout, items block are displayed.
-user can open product from homepage
+- **Verify Homepage (Repeat for New/Existing Users):**
+  - Ensure the page loads with the default layout and items block are displayed.
+  - Confirm users can open a product from the homepage.
 
-- **Buy product**: 
-open product and verify page display
-add product to cart and check product added to cart
-open cart and verify page display
-check correct product/price display
-open Checkout modal and verify modal display
-submit order
-check order successful
+- **Buy Product:**
+  - Open a product and verify the page is displayed correctly.
+  - Add the product to the cart and check that it is added successfully.
+  - Open the cart and verify the page display is correct.
+  - Check for correct product and price display.
+  - Open the Checkout modal and verify its display.
+  - Submit the order and confirm the order is processed successfully.
 
-- **Customer support**: 
-open contact form and verify modal display
-send message
+- **Customer Support:**
+  - Open the contact form and verify the modal display.
+  - Send a message and confirm the action is completed.
+
 
 ### Critical Path Tests
 - **Login/Logout**
