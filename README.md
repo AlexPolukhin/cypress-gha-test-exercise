@@ -3,7 +3,7 @@ first draft: 29.03.24
 # Cypress Tests for Demo Websites
 
 ## Introduction
-This repository contains Cypress tests for a demo website. It includes various test cases to ensure the website's functionality works as expected.
+This repository contains Cypress tests for a demo website. The tests are organized into two main categories: UI tests and API tests.
 
 ## Prerequisites
 - Node.js (version 12 or above)
@@ -72,26 +72,27 @@ send message
 
 ## API
 
-### Smoke tests
+### Smoke Tests
 
 #### Continents
-- **with codes and names**
-request is 200
-response not empty
-structure correct
-data correct
+- **With Codes and Names:**
+  - Request returns a 200 status.
+  - Response is not empty.
+  - Structure is correct.
+  - Data is accurate.
 
-- **with codes, names, countries**
-request is 200
-response not empty
-structure correct
+- **With Codes, Names, and Countries:**
+  - Request returns a 200 status.
+  - Response is not empty.
+  - Structure is correct.
 
 #### Continent
-- **Request continent all data**
-request is 200
-response not empty
-structure correct
-data correct
+- **Request All Data for a Continent:**
+  - Request returns a 200 status.
+  - Response is not empty.
+  - Structure is correct.
+  - Data is accurate.
+
 
 #### Countries
 - **tbd**
