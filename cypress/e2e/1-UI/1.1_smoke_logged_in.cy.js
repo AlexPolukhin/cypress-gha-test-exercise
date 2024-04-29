@@ -33,14 +33,17 @@ describe('Verify homepage ', () => {
 
     it('open a product from homepage', () => {
         homePage.visitHomePage();
+        cy.get('.mb-4')
+            .eq(8)
 
-        const randomId = Math.floor(Math.random() * 10);
+        const randomId = Cypress._.random(0, 8);
         homePage.selectRandomProduct(randomId);
 
         defaultPage.defaultLayout();
 
         productPage.productLayout();
     });
+ 
 });
 
 describe('Buy product', () => {
@@ -51,8 +54,9 @@ describe('Buy product', () => {
 
     });
     
+
     it('should add item to the cart and buy', () => {
-        const randomProd = Math.floor(Math.random() * 15) + 1;
+        const randomProd = Cypress._.random(0, 15);
 
         productPage.addToCartCall(randomProd);
 
@@ -97,4 +101,5 @@ describe('Buy product', () => {
         checkoutPage.closeOrderModal();
 
     });
+
 });
