@@ -1,0 +1,13 @@
+{
+    "contact_button": "Contact",
+    "title": "New message",
+    "email_field_title": "Contact Email:",
+    "name_field_title": "Contact Name:",
+    "message_field_title": "Message:",
+    "send_button": "Send message",
+    "close_button": "Close",
+    "success_message": "Thanks for the message!!",
+    "email_valid": "rnelson@msn.com",
+    "name": "John Doe",
+    "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus nisi massa."
+  }
