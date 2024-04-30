@@ -1,93 +1,94 @@
 /// <reference types="cypress"/>
 
-import { DefaultPage } from '../../0-page-objects/default';
-import { HomePage } from '../../0-page-objects/homepage';
-import { ProductPage } from '../../0-page-objects/product';
-import { CartPage } from '../../0-page-objects/cart';
-import { CheckoutPage } from '../../0-page-objects/checkout';
+import { DefaultPage } from '../../0-page-objects/default'
+import { HomePage } from '../../0-page-objects/homepage'
+import { ProductPage } from '../../0-page-objects/product'
+import { CartPage } from '../../0-page-objects/cart'
+import { CheckoutPage } from '../../0-page-objects/checkout'
 
-const defaultPage = new DefaultPage();
-const homePage = new HomePage();
-const productPage = new ProductPage();
-const cartPage = new CartPage();
-const checkoutPage = new CheckoutPage();
+const defaultPage = new DefaultPage()
+const homePage = new HomePage()
+const productPage = new ProductPage()
+const cartPage = new CartPage()
+const checkoutPage = new CheckoutPage()
 
 describe('Verify homepage ', () => {
-
     beforeEach(() => {
-        defaultPage.setCookie(Cypress.env('new-user'), Cypress.env('user-cookies'));
+        defaultPage.setCookie(
+            Cypress.env('new-user'),
+            Cypress.env('user-cookies')
+        )
 
-        homePage.visitHomePage();
-    });
+        homePage.visitHomePage()
+    })
 
     it('should load and display', () => {
+        homePage.validateHomePageURL()
 
-        homePage.validateHomePageURL();
+        defaultPage.defaultLayout()
 
-        defaultPage.defaultLayout();
-
-        homePage.homeBody();
-        
-    });
+        homePage.homeBody()
+    })
 
     it('open a product from homepage', () => {
-        const randomId = Cypress._.random(0, 8);
-        homePage.selectRandomProduct(randomId);
+        const randomId = Cypress._.random(0, 8)
+        homePage.selectRandomProduct(randomId)
 
-        defaultPage.defaultLayout();
+        defaultPage.defaultLayout()
 
-        productPage.productLayout();
-    });
-});
+        productPage.productLayout()
+    })
+})
 
 describe('Buy product', () => {
     beforeEach(() => {
-        defaultPage.setCookie(Cypress.env('new-user'), Cypress.env('user-cookies'));
+        defaultPage.setCookie(
+            Cypress.env('new-user'),
+            Cypress.env('user-cookies')
+        )
 
-        defaultPage.clearCart(Cypress.env('user-cookies'));
+        defaultPage.clearCart(Cypress.env('user-cookies'))
+    })
 
-    });
-    
     it('should add item to the cart and buy', () => {
-        const randomProd = Cypress._.random(0, 15);
+        const randomProd = Cypress._.random(0, 15)
 
-        productPage.addToCartCall(randomProd);
+        productPage.addToCartCall(randomProd)
 
-        checkoutPage.deleteItemFromCartCall();
-        
-        productPage.navigateToProduct(randomProd);
+        checkoutPage.deleteItemFromCartCall()
 
-        defaultPage.defaultLayout();
+        productPage.navigateToProduct(randomProd)
 
-        productPage.productLayout();
+        defaultPage.defaultLayout()
 
-        productPage.addToCartClick();
+        productPage.productLayout()
 
-        productPage.waitAddToCartCall();
+        productPage.addToCartClick()
 
-        cartPage.navigateToCart();
+        productPage.waitAddToCartCall()
 
-        defaultPage.defaultLayout();
+        cartPage.navigateToCart()
 
-        cartPage.cartLayout();
+        defaultPage.defaultLayout()
 
-        cartPage.itemPriceAndName();
-        
-        checkoutPage.openPlaceOrderModal();
+        cartPage.cartLayout()
 
-        checkoutPage.modalLayout();
+        cartPage.itemPriceAndName()
 
-        cy.fixture('checkout_data').then((text) => {
-            checkoutPage.fillOutForm(text.name, text.card);
-        });
+        checkoutPage.openPlaceOrderModal()
 
-        checkoutPage.submitForm();
+        checkoutPage.modalLayout()
 
-        checkoutPage.validateOrder();
+        cy.fixture('checkout_data').then(text => {
+            checkoutPage.fillOutForm(text.name, text.card)
+        })
 
-        checkoutPage.waitDeleteCartCall();
+        checkoutPage.submitForm()
 
-        checkoutPage.closeOrderModal();
+        checkoutPage.validateOrder()
 
-    });
-});
+        checkoutPage.waitDeleteCartCall()
+
+        checkoutPage.closeOrderModal()
+    })
+})

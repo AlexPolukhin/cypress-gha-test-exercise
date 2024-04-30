@@ -1,52 +1,55 @@
 export class CheckoutPage {
-      
-   deleteItemFromCartCall() {
-         cy.intercept('POST', '/deletecart').as('postDeleteCart');
-   }
-    
-   openPlaceOrderModal() {
-         cy.get('.modal-content').should('not.be.visible');
-         cy.get('.col-lg-1 > .btn').click();
-   }
+    deleteItemFromCartCall() {
+        cy.intercept('POST', '/deletecart').as('postDeleteCart')
+    }
 
-   modalLayout() {
-      cy.get('.modal-content').should('be.visible');
-      cy.get('#orderModal > .modal-dialog > .modal-content > .modal-header').should('be.visible');
-      cy.get('#orderModal > .modal-dialog > .modal-content > .modal-header').should('be.visible');
-      cy.get('#orderModal > .modal-dialog > .modal-content > .modal-footer > .btn-secondary')
-         .scrollIntoView()
-         .should('be.visible');
-      cy.get('#orderModal > .modal-dialog > .modal-content > .modal-footer > .btn-secondary').should('be.visible');
-   }
+    openPlaceOrderModal() {
+        cy.get('.modal-content').should('not.be.visible')
+        cy.get('.col-lg-1 > .btn').click()
+    }
 
-   fillOutForm(name, card) {
-      cy.get('#name')
-         .click()
-         .type(name);
-      cy.get('#name').should('have.value', name);
-      cy.get('#card').type(card);
-      cy.get('#card').should('have.value', card);
-   }
+    modalLayout() {
+        cy.get('.modal-content').should('be.visible')
+        cy.get(
+            '#orderModal > .modal-dialog > .modal-content > .modal-header'
+        ).should('be.visible')
+        cy.get(
+            '#orderModal > .modal-dialog > .modal-content > .modal-header'
+        ).should('be.visible')
+        cy.get(
+            '#orderModal > .modal-dialog > .modal-content > .modal-footer > .btn-secondary'
+        )
+            .scrollIntoView()
+            .should('be.visible')
+        cy.get(
+            '#orderModal > .modal-dialog > .modal-content > .modal-footer > .btn-secondary'
+        ).should('be.visible')
+    }
 
-   submitForm() {
-      cy.contains('Purchase').click();
-   }
+    fillOutForm(name, card) {
+        cy.get('#name').click().type(name)
+        cy.get('#name').should('have.value', name)
+        cy.get('#card').type(card)
+        cy.get('#card').should('have.value', card)
+    }
 
-   validateOrder() {
-      cy.get('.sweet-alert').should('be.visible');
-      cy.get('.sa-success').should('be.visible');
-      cy.get('.sa-success').should('be.visible');
-      cy.get('.confirm')
-         .should('be.visible')
-         .and('have.text', 'OK')
-   }
+    submitForm() {
+        cy.contains('Purchase').click()
+    }
 
-   waitDeleteCartCall() {
-      cy.wait('@postDeleteCart').its('response.statusCode').should('eq', 200);
-   }
+    validateOrder() {
+        cy.get('.sweet-alert').should('be.visible')
+        cy.get('.sa-success').should('be.visible')
+        cy.get('.sa-success').should('be.visible')
+        cy.get('.confirm').should('be.visible').and('have.text', 'OK')
+    }
 
-   closeOrderModal() {
-      cy.get('.confirm').click();
-      cy.get('.sweet-alert').should('not.be.visible');
-   }
+    waitDeleteCartCall() {
+        cy.wait('@postDeleteCart').its('response.statusCode').should('eq', 200)
+    }
+
+    closeOrderModal() {
+        cy.get('.confirm').click()
+        cy.get('.sweet-alert').should('not.be.visible')
+    }
 }
